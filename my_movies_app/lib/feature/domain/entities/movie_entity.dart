@@ -1,15 +1,20 @@
-class AllMoviesEntity {
+import 'package:equatable/equatable.dart';
+
+class AllMoviesEntity implements Equatable {
   AllMoviesEntity({
     required this.items,
     required this.errorMessage,
   });
   late final List<MovieEntity> items;
   late final String errorMessage;
-  
- 
+  @override
+  List<Object?> get props => [items, errorMessage];
+
+  @override
+  bool? get stringify => true;
 }
 
-class MovieEntity {
+class MovieEntity implements Equatable {
   MovieEntity({
     required this.id,
     required this.title,
@@ -50,9 +55,35 @@ class MovieEntity {
   late final List<DirectorEntity> directorList;
   late final String stars;
   late final List<StarEntity> starList;
+
+  @override
+  List<Object?> get props => [
+        id,
+        title,
+        fullTitle,
+        year,
+        releaseState,
+        image,
+        runtimeMins,
+        runtimeStr,
+        plot,
+        contentRating,
+        imDbRating,
+        imDbRatingCount,
+        metacriticRating,
+        genres,
+        genreList,
+        directors,
+        directorList,
+        stars,
+        starList,
+      ];
+
+  @override
+  bool? get stringify => true;
 }
 
-class GenreEntity {
+class GenreEntity implements Equatable{
   GenreEntity({
     required this.key,
     required this.value,
@@ -60,18 +91,29 @@ class GenreEntity {
   late final String key;
   late final String value;
   
+  @override
+  List<Object?> get props => [key,value];
+  
+  @override
+  bool? get stringify => true;
 }
 
-class DirectorEntity {
+class DirectorEntity implements Equatable{
   DirectorEntity({
     required this.id,
     required this.name,
   });
   late final String id;
   late final String name;
+  
+  @override
+  List<Object?> get props => [id,name];
+  
+  @override
+  bool? get stringify => true;
 }
 
-class StarEntity {
+class StarEntity implements Equatable{
   StarEntity({
     required this.id,
     required this.name,
@@ -79,4 +121,9 @@ class StarEntity {
   late final String id;
   late final String name;
   
+  @override
+  List<Object?> get props => [id,name];
+  
+  @override
+  bool? get stringify => true;
 }

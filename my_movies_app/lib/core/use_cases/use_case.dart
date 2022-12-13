@@ -1,3 +1,1 @@
-abstract class AUseCase {
-  
-}
+abstract class AUseCase {} 

@@ -1,14 +1,20 @@
+import 'package:dartz/dartz.dart';
+import 'package:my_movies_app/core/failures/failure.dart';
 import 'package:my_movies_app/feature/data/datasources/remote_datasource.dart';
 import 'package:my_movies_app/feature/domain/entities/movie_entity.dart';
 import 'package:my_movies_app/feature/domain/repositories/movies_repository.dart';
 
 class MoviesRepository implements AMoviesRepository{
-  final RemoteDatasource remoteDatasorce;
+  final ARemoteDatasource remoteDatasorce;
   const MoviesRepository({required this.remoteDatasorce});
 
   @override
-  Future<AllMoviesEntity> getTheatreMovies() async{
-    return await remoteDatasorce.getTheatreMovies();
+  Future<Either<AllMoviesEntity,Failure>> getTheatreMovies() async{
+    try {
+      final result=await remoteDatasorce.getTheatreMovies();
+      return Left(result);
+    } catch (e) {
+      return Right(ServerFailure(message: 'Server failure'));
+    }
   }
-
 }

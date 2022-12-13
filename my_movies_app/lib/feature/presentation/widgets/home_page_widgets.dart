@@ -1,0 +1,1 @@
+export 'in_theatres_list.dart';
