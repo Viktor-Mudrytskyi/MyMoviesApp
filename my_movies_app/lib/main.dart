@@ -18,9 +18,10 @@ void main() {
           return MaterialPageRoute(builder: ((context) => const HomePage()));
         case '/details_page':
           return MaterialPageRoute(
-              builder: ((context) => DetailsPage(
-                    movie: (settings.arguments as MovieEntity),
-                  )));
+            builder: ((context) => DetailsPage(
+                  movie: (settings.arguments as MovieEntity),
+                )),
+          );
         default:
           throw Exception('Page route is invalid');
       }

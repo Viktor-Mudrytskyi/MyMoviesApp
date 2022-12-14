@@ -9,6 +9,7 @@ class ActorTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final list = name.split(' ');
     return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8.0),
         color: Theme.of(context).primaryColor,
@@ -27,8 +28,16 @@ class ActorTile extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 8.0),
-            Text(list[0]),
-            Text(list.length > 1 ? list[1] : ' '),
+            Text(
+              list[0],
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+            Text(
+              list.length > 1 ? list[1] : ' ',
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
           ],
         ),
       ),

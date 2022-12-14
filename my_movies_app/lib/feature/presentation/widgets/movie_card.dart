@@ -10,11 +10,11 @@ class MovieCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, '/details_page',arguments: movieItem);
+        Navigator.pushNamed(context, '/details_page', arguments: movieItem);
       },
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.grey.shade900,
+          color: Theme.of(context).primaryColor,
           borderRadius: const BorderRadius.all(Radius.circular(10)),
         ),
         height: 240,
@@ -24,12 +24,10 @@ class MovieCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-                width: 150,
-                height: 200,
-                child: Image.network(
-                  movieItem.image,
-                  fit: BoxFit.cover,
-                )),
+              width: 150,
+              height: 200,
+              child: tryIm(),
+            ),
             const SizedBox(height: 5),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -65,5 +63,15 @@ class MovieCard extends StatelessWidget {
         ),
       ),
     );
+  }
+  Widget tryIm(){
+    try {
+      return  Image.network(
+                movieItem.image,
+                fit: BoxFit.cover,
+              );
+    } catch (e) {
+      return Image.asset('assets/images/no_image.png');
+    }
   }
 }

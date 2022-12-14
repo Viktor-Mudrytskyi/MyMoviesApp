@@ -17,15 +17,21 @@ class DetailsPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            DetailsStack(movie: movie),
+            DetailsStack(movie: movie), 
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const SizedBox(
+                    height: 15,
+                  ),
                   Text(
                     'Description: ',
                     style: titleLarge,
+                  ),
+                  const SizedBox(
+                    height: 6,
                   ),
                   Text(
                     '    ${movie.plot}',

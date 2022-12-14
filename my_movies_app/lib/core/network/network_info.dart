@@ -8,7 +8,7 @@ abstract class ANetworkInfo {
 
 class NetworkInfo implements ANetworkInfo {
   Connectivity con;
-
+ 
   NetworkInfo({required this.con});
   @override
   Future<bool> get isConnected async {

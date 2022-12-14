@@ -13,7 +13,7 @@ class DetailsStack extends StatelessWidget {
     final titleSmall = Theme.of(context).textTheme.titleSmall;
     Image image = Image.network(
       movie.image,
-      fit: BoxFit.fill,
+      fit: BoxFit.cover,
       scale: 0.8,
     );
     return SizedBox(
@@ -48,18 +48,18 @@ class DetailsStack extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
+                          Wrap(
+                            crossAxisAlignment: WrapCrossAlignment.center,
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(top: 3),
+                                padding: const EdgeInsets.only(top: 5.0),
                                 child: Image.asset(
                                   'assets/icons/imdb_icon.png',
-                                  scale: 14,
+                                  scale: 13,
                                 ),
                               ),
                               Text(
-                                movie.imDbRating,
+                               movie.imDbRating,
                                 style: labelLarge,
                               ),
                               Text(
