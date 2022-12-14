@@ -37,11 +37,11 @@ class _TopButtonState extends State<TopButton> {
             ),
             isShown
                 ? const Icon(
-                    Icons.arrow_drop_down_outlined,
+                    Icons.arrow_drop_up_outlined,
                     color: Colors.white,
                   )
                 : const Icon(
-                    Icons.arrow_drop_up_outlined,
+                    Icons.arrow_drop_down_outlined,
                     color: Colors.white,
                   ),
           ],

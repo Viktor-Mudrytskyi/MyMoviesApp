@@ -16,18 +16,26 @@ class _TopMoviesState extends State<TopMovies> {
   Widget build(BuildContext context) {
     return BlocBuilder<TopMoviesBloc, ATopMovieState>(
       builder: (context, state) {
-         if (state is TopMovieLoading) {
-          return const Center(
-            child: CircularProgressIndicator(
-        color: Colors.white,
-            ),
+        if (state is TopMovieLoading) {
+          return SliverList(
+            delegate: SliverChildListDelegate([
+              const Center(
+                child: CircularProgressIndicator(
+                  color: Colors.white,
+                ),
+              ),
+            ]),
           );
         } else if (state is TopMovieLoaded) {
           return TopMoviesList(movies: state.movies);
         } else if (state is TopMovieEmpty) {
-          return Container();
+          return SliverList(
+            delegate: SliverChildListDelegate([]),
+          );
         }
-        return Container();
+        return SliverList(
+            delegate: SliverChildListDelegate([]),
+          );
       },
     );
   }

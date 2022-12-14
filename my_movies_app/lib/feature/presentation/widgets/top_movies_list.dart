@@ -7,15 +7,28 @@ class TopMoviesList extends StatelessWidget {
   final AllTopMovieEntity movies;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      child: ListView.separated(
-        physics: const NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
-        separatorBuilder: (context, index) => const Divider(color: Colors.white,),
-        itemCount: movies.items.length,
-        itemBuilder: (context, index) =>
+    return SliverList(
+      delegate: SliverChildBuilderDelegate(childCount: movies.items.length,
+          (context, index) {
+        return Column(
+          children: [
             TopMovieTile(movie: movies.items[index]),
-      ),
+            const Divider(
+              color: Colors.white,
+              thickness: 1,
+            )
+          ],
+        );
+      }),
     );
+
+    // ListView.separated(
+    //   physics: const NeverScrollableScrollPhysics(),
+    //   shrinkWrap: true,
+    //   separatorBuilder: (context, index) => const Divider(color: Colors.white,),
+    //   itemCount: movies.items.length,
+    //   itemBuilder: (context, index) =>
+    //       TopMovieTile(movie: movies.items[index]),
+    // );
   }
 }

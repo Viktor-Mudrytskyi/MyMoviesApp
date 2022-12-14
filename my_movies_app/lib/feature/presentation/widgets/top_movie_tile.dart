@@ -11,7 +11,7 @@ class TopMovieTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 120,
+      height: 140,
       margin: const EdgeInsets.symmetric(horizontal: 10.0),
       child: Row(
         children: [
